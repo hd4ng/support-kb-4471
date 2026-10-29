@@ -55,7 +55,7 @@ Engineering update, 5 October, when #4471 closed:
 | --- | --- | --- |
 | `parser` | fixed: `fix(dates): parse dd/mm for eu locales` | closed, completed |
 | `hint` | won't fix: the booking-v3 form is retired | closed, not planned |
-| `one-day move` | not in the update; closed with `parser`, where the desk files these reports | closed, completed; reopen if they come back |
+| `one-day move` | not in the update; closed with `parser`, where the desk files these reports | closed, duplicate of #1; reopen if they come back |
 
 ## What to do
 
