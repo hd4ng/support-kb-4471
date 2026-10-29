@@ -19,12 +19,12 @@ signature: Huy Dang
   };
 </script>
 
-[#4471](/kb/incidents/4471) says one issue and one fix. Its reports show three problems. The
+[#4471](/kb/incidents/4471) said one issue and one fix. Its reports show three problems. The
 subjects match, so the [subject rule](/kb/triage/dedupe) merged them, but the bodies differ.
-The fix queued for the parser closes only the first one.
+Engineering closed #4471 on 5 October. That closes two of the three problems, not the third.
 
 <Callout kind="warn">
-#4471 is not one known issue. Two of its three problems had no ticket and no fix.
+#4471 is closed, but the one-day move is not fixed. It still has no owner.
 </Callout>
 
 ## The problems
@@ -42,16 +42,25 @@ The fix queued for the parser closes only the first one.
   shows a different day in Lisbon and Toronto for the same meeting, one has an invite that
   arrived before its booking, and one says only June is off. That points at time zones or
   daylight saving, not at date order. The desk saw these
-  (`desk-notes.json`) but counted them under `parser` by tenant.
+  (`desk-notes.json`) and files them under `parser` by tenant, so they count there too.
 
 Do not trust the intake tag for this. It is guessed from the reporter's browser, and
 it disagrees with the tenant on many of these reports.
 
+## Where each problem stands
+
+Engineering update, 5 October, when #4471 closed:
+
+| problem | result | ticket |
+| --- | --- | --- |
+| `parser` | fixed: `fix(dates): parse dd/mm for eu locales` | closed, completed |
+| `hint` | won't fix: the booking-v3 form is retired | closed, not planned |
+| `one-day move` | not in the update; the parser fix does not touch time zones | **open** |
+
 ## What to do
 
-1. Take `hint` and `one-day move` out of #4471. Track them in their own tickets above.
-2. Keep #4471 for `parser` only, and check the queued fix against booking-v2 and booking-v3 tenants.
-3. Merge on cause, not on subject: [decision 0001](/kb/decisions/0001-dedupe-by-subject)
+1. Keep the `one-day move` ticket open, and give it an owner. Closing #4471 did not fix it.
+2. Merge on cause, not on subject: [decision 0001](/kb/decisions/0001-dedupe-by-subject)
    needs a new record that replaces it.
 
 <RenderStamp {signature} />
