@@ -34,3 +34,14 @@ Support desk. Decision records: whoever signed them.
 ---
 
 Exported 2026-10-04 from the `support` repo, `apps/kb/` → `src/`.
+
+---
+
+## #4471, split (added 2026-10-28)
+
+- Page: [`src/routes/kb/incidents/4471/problems/+page.svx`](src/routes/kb/incidents/4471/problems/+page.svx), signed, desk ref `DR-ZSE6-EFW3`.
+- Counts come from [`src/lib/kb/problems.ts`](src/lib/kb/problems.ts) and [`ProblemTable.svelte`](src/lib/kb/ProblemTable.svelte).
+- The page as the desk sees it: [`rendered/problems.png`](rendered/problems.png), [`rendered/problems.html`](rendered/problems.html), and the whole built kb in [`rendered/site/`](rendered/site/).
+- Tickets: [#1 parser, 374 reports](../../issues/1) · [#2 hint, 33 reports](../../issues/2) · [#3 one-day move, 5 reports](../../issues/3).
+
+Build: `npm install && npm run build` (SvelteKit + mdsvex, static output in `build/`).

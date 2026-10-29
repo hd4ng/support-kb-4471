@@ -1,0 +1,57 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: support desk
+status: open
+reviewed: 2026-10-28
+signature: Huy Dang
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+
+  const tickets = {
+    parser: 'https://github.com/hd4ng/support-kb-4471/issues/1',
+    hint: 'https://github.com/hd4ng/support-kb-4471/issues/2',
+    'one-day move': 'https://github.com/hd4ng/support-kb-4471/issues/3',
+  };
+</script>
+
+[#4471](/kb/incidents/4471) says one issue and one fix. Its reports show three problems. The
+subjects match, so the [subject rule](/kb/triage/dedupe) merged them, but the bodies differ.
+The fix queued for the parser closes only the first one.
+
+<Callout kind="warn">
+#4471 is not one known issue. Two of its three problems had no ticket and no fix.
+</Callout>
+
+## The problems
+
+<ProblemTable ticket={4471} {tickets} />
+
+## How to tell them apart
+
+- **`parser`**: the tenant writes the day first, and the shared parser reads every date month
+  first, so day and month swap. It happens in the app, in email and in booking-v2 forms.
+- **`hint`**: the tenant runs booking-v3. Its form prints `MM/DD/YYYY` under the date field, so
+  people type the month first, and the form reads the date the tenant's way, day first. Day and
+  month swap here too, but the parser fix does not touch it: the hint is the bug.
+- **`one-day move`**: day and month stay in place, and the date moves by one day. One report
+  shows a different day in Lisbon and Toronto for the same meeting, one has an invite that
+  arrived before its booking, and one says only June is off. That points at time zones or
+  daylight saving, not at date order. The desk saw these
+  (`desk-notes.json`) but counted them under `parser` by tenant.
+
+Do not trust the intake tag for this. It is guessed from the reporter's browser, and
+it disagrees with the tenant on many of these reports.
+
+## What to do
+
+1. Take `hint` and `one-day move` out of #4471. Track them in their own tickets above.
+2. Keep #4471 for `parser` only, and check the queued fix against booking-v2 and booking-v3 tenants.
+3. Merge on cause, not on subject: [decision 0001](/kb/decisions/0001-dedupe-by-subject)
+   needs a new record that replaces it.
+
+<RenderStamp {signature} />

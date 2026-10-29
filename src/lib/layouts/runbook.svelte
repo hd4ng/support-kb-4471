@@ -24,7 +24,7 @@
     <p class="meta">
       <span>owner <b>{owner}</b></span>
       <span class="status {status}">{status}</span>
-      <span class:stale>reviewed {isoDay(reviewed)} · {age} days ago{stale ? ' · stale' : ''}</span>
+      <span class:stale>reviewed {isoDay(reviewed)} · {age} {age === 1 ? 'day' : 'days'} ago{stale ? ' · stale' : ''}</span>
     </p>
   </header>
   {#if stale}
