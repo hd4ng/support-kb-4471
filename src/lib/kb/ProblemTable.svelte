@@ -33,6 +33,16 @@
   </tbody>
 </table>
 
+{#each result.groups as g (g.problem)}
+  {#each g.alsoIn as other (other)}
+    {@const shared = g.reports.filter((r) => result.groups.find((x) => x.problem === other)?.reports.includes(r)).length}
+    {#if g.problem === 'one-day move'}
+      <p class="note">The {shared} <code>{g.problem}</code> reports are filed under <code>{other}</code> by tenant, so they count in both rows.</p>
+    {/if}
+  {/each}
+{/each}
+
 <style>
   .sum { font-size: 1.1rem; }
+  .note { color: var(--muted); font-size: 0.85em; }
 </style>
