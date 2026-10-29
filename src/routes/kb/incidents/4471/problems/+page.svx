@@ -4,7 +4,7 @@ title: '#4471 · three problems, not one'
 owner: support desk
 status: closed
 reviewed: 2026-10-28
-signature: Huy Dang
+signature: v1.eyJzdWIiOiIxMjY0IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyNDA4NjMsImV4cCI6MTc5MzMyNzI2M30.nQOeUUJNOGeJvF1z5ycj1iKOyH2s22RATAlWIqq-3lM
 ---
 
 <script>
@@ -55,7 +55,7 @@ Engineering update, 5 October, when #4471 closed:
 | --- | --- | --- |
 | `parser` | fixed: `fix(dates): parse dd/mm for eu locales` | closed, completed |
 | `hint` | won't fix: the booking-v3 form is retired | closed, not planned |
-| `one-day move` | not in the update; closed with `parser`, where the desk files these reports | closed, duplicate of #1; reopen if they come back |
+| `one-day move` | not in the update; closed with `parser`, where the desk files these reports | closed, completed; reopen if they come back |
 
 ## What to do
 
